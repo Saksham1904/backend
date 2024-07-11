@@ -18,6 +18,10 @@ app.listen(PORT,()=>{
       console.log(`server started successfull at ${PORT}`)
 })
 
+
+
+
+
 const database=require("./db/database")
 database.connect();
 

@@ -6,6 +6,8 @@ const pharmacy=require("../models/Pharmacy")
 
 exports.create=async(req,res)=>{
     try{
+     
+
         const{id}=req.user
         const{name,des,price,discount}=req.body
         if(!name||!price||!des||!discount)
@@ -53,7 +55,7 @@ exports.create=async(req,res)=>{
 exports.updatemed=async(req,res)=>{
     try{
         
-        const {medid}=req.body;
+        const {medid}=req.query.id;
        console.log(medid)
        const med = await medicine.findById(medid)
        
@@ -91,7 +93,7 @@ exports.updatemed=async(req,res)=>{
       exports.delmed=async(req,res)=>{
         try{
             const{id}=req.user
-            const {medid}=req.body
+            const {medid}=req.query.id
             const med = await medicine.findById(medid)
         
             if (!med) {

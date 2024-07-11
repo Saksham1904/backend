@@ -8,6 +8,12 @@ const {pharlog}=require("../controllers/pharmacy")
 const {create}=require("../controllers/medicine")
 const {updatemed}=require("../controllers/medicine")
 const {delmed}=require("../controllers/medicine")
+const {show}=require("../controllers/list")
+const{search}=require("../controllers/list")
+
+
+router.get("/show",show)
+router.get("/search",search)
 
 
 
