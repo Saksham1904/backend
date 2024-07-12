@@ -24,8 +24,8 @@ exports.show=async(req,res)=>{
 exports.search=async(req,res)=>{
     try{
       const {name}=req.query
-      const key=`pharmacy:${name}`
-      let  products=await redis.get(key)
+     
+      let  products=await redis.get(name)
       if(products)
       {
         
@@ -33,7 +33,7 @@ exports.search=async(req,res)=>{
       }
       else{
         products=await pharmacy.find({})
-        await redis.set(key,JSON.stringify(products))
+        await redis.set(name,JSON.stringify(products))
       }
       
     
