@@ -16,7 +16,7 @@ exports.show=async(req,res)=>{
     }
     return res.status(200).json({
         success:true,
-        products:JSON.parse(products),
+        pharmacy:JSON.parse(products),
     })  
 }
 
