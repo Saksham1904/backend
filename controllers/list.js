@@ -3,6 +3,7 @@ const pharmacy=require("../models/Pharmacy")
 
 const redis=require("../db/redis")
 exports.show=async(req,res)=>{
+  
     let  products=await redis.get("products")
     if(!products)
     {
@@ -11,9 +12,10 @@ exports.show=async(req,res)=>{
        
         return res.status(200).json({
             success:true,
-            products,
+            products
         })
     }
+
     return res.status(200).json({
         success:true,
         pharmacy:JSON.parse(products),
@@ -33,7 +35,7 @@ exports.search=async(req,res)=>{
       }
       else{
         products=await pharmacy.find({})
-        await redis.set(name,JSON.stringify(products))
+        await redis.set(products,JSON.stringify(products))
       }
       
     
